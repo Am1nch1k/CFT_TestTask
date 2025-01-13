@@ -46,7 +46,7 @@ public class DataProcessor {
             }
         }
 
-        // Сортируем данные перед записью
+        
         Collections.sort(integers);
         Collections.sort(floats);
         Collections.sort(strings);
@@ -67,9 +67,9 @@ public class DataProcessor {
         try (BufferedReader reader = Files.newBufferedReader(Paths.get(file), StandardCharsets.UTF_8)) {
             String line;
             while ((line = reader.readLine()) != null) {
-                line = line.trim();  // Убираем лишние пробелы по краям
+                line = line.trim();  
                 if (line.isEmpty()) {
-                    continue;  // Игнорируем пустые строки
+                    continue;  
                 }
 
                 if (DataTypeChecker.isInteger(line)) {
@@ -105,7 +105,7 @@ public class DataProcessor {
     private void printFullStats(List<BigInteger> integers, List<BigDecimal> floats, List<String> strings) {
         System.out.println("Полная статистика:");
 
-        // Статистика для целых чисел
+       
         System.out.println("Целых чисел: " + integers.size());
         System.out.println("Минимальное целое число: " + (integers.isEmpty() ? "Нет данных" : integers.get(0)));
         System.out.println("Максимальное целое число: " + (integers.isEmpty() ? "Нет данных" : integers.get(integers.size() - 1)));
@@ -115,12 +115,12 @@ public class DataProcessor {
             for (BigInteger num : integers) {
                 sum = sum.add(num);
             }
-            BigDecimal avg = new BigDecimal(sum).divide(new BigDecimal(integers.size()), 2, BigDecimal.ROUND_HALF_UP);  // Добавлено округление
+            BigDecimal avg = new BigDecimal(sum).divide(new BigDecimal(integers.size()), 2, BigDecimal.ROUND_HALF_UP); 
             System.out.println("Сумма: " + sum);
-            System.out.println("Среднее значение: " + avg.setScale(2, BigDecimal.ROUND_HALF_UP));  // Округление до 2 знаков
+            System.out.println("Среднее значение: " + avg.setScale(2, BigDecimal.ROUND_HALF_UP));  
         }
 
-        // Статистика для чисел с плавающей запятой
+        
         System.out.println("Чисел с плавающей запятой: " + floats.size());
         System.out.println("Минимальное число с плавающей запятой: " + (floats.isEmpty() ? "Нет данных" : floats.get(0).setScale(10, BigDecimal.ROUND_HALF_UP)));
         System.out.println("Максимальное число с плавающей запятой: " + (floats.isEmpty() ? "Нет данных" : floats.get(floats.size() - 1).setScale(6, BigDecimal.ROUND_HALF_UP)));
@@ -130,20 +130,20 @@ public class DataProcessor {
             for (BigDecimal num : floats) {
                 sum = sum.add(num);
             }
-            BigDecimal avg = sum.divide(new BigDecimal(floats.size()), 2, BigDecimal.ROUND_HALF_UP);  // Добавлено округление
-            System.out.println("Сумма: " + sum.setScale(2, BigDecimal.ROUND_HALF_UP));  // Округление до 2 знаков
-            System.out.println("Среднее значение: " + avg.setScale(2, BigDecimal.ROUND_HALF_UP));  // Округление до 2 знаков
+            BigDecimal avg = sum.divide(new BigDecimal(floats.size()), 2, BigDecimal.ROUND_HALF_UP);  
+            System.out.println("Сумма: " + sum.setScale(2, BigDecimal.ROUND_HALF_UP));  
+            System.out.println("Среднее значение: " + avg.setScale(2, BigDecimal.ROUND_HALF_UP));  
         }
 
-        // Статистика для строк
+        
         System.out.println("Строк: " + strings.size());
 
         if (!strings.isEmpty()) {
-            // Находим самую короткую и самую длинную строку
+            
             String minLengthString = Collections.min(strings, Comparator.comparingInt(String::length));
             String maxLengthString = Collections.max(strings, Comparator.comparingInt(String::length));
 
-            // Выводим полную статистику для строк
+          
             System.out.println("Самая короткая строка: \"" + minLengthString + "\" (Длина: " + minLengthString.length() + ")");
             System.out.println("Самая длинная строка: \"" + maxLengthString + "\" (Длина: " + maxLengthString.length() + ")");
         } else {
