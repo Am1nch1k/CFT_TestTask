@@ -1,1 +1,0 @@
-# CFT_TestTask
