@@ -3,7 +3,7 @@ import java.math.BigInteger;
 import java.math.BigDecimal;
 public class DataTypeChecker {
 
-    // Проверка, является ли строка целым числом
+    
     public static boolean isInteger(String value) {
         try {
             new BigInteger(value);
@@ -13,7 +13,7 @@ public class DataTypeChecker {
         }
     }
 
-    // Проверка, является ли строка числом с плавающей запятой
+    
     public static boolean isFloat(String value) {
         try {
             new BigDecimal(value);
