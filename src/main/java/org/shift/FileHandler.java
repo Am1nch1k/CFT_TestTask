@@ -19,12 +19,12 @@ public class FileHandler {
             Files.createDirectories(outputDirPath);
         }
 
-        // Проверка прав на запись
+        
         if (!Files.isWritable(outputDirPath)) {
             throw new IOException("Невозможно записать в директорию: " + outputDirPath.toAbsolutePath());
         }
 
-        // Создание потоков для записи в файлы
+        
         this.integerWriter = new BufferedWriter(new FileWriter(
                 outputDirPath.resolve(prefix + "integers.txt").toFile(), append));
         this.floatWriter = new BufferedWriter(new FileWriter(
@@ -33,7 +33,7 @@ public class FileHandler {
                 outputDirPath.resolve(prefix + "strings.txt").toFile(), append));
     }
 
-    // Записываем данные в соответствующие файлы
+    
     public void writeData(Object data) throws IOException {
         if (data instanceof Integer || data instanceof Long) {
             integerWriter.write(data.toString());
