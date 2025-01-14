@@ -1,6 +1,0 @@
-Long
-Lorem ipsum dolor sit amet
-consectetur adipiscing
-Нормальная форма числа с плавающей запятой
-Пример
-тестовое задание
