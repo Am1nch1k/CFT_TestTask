@@ -52,4 +52,4 @@ java -jar Java_CFT-1.0-SNAPSHOT.jar -o [путь] -p [префикс] -a -s -l [
 ```
 Телеграмм📱  - https://t.me/den1ssed
 ```
->>>>>>> 563e184d813ec7e1960b5fd17c12f93b29a2f05e
+
