@@ -3,7 +3,6 @@ import java.math.BigInteger;
 import java.math.BigDecimal;
 public class DataTypeChecker {
 
-    
     public static boolean isInteger(String value) {
         try {
             new BigInteger(value);
@@ -13,7 +12,6 @@ public class DataTypeChecker {
         }
     }
 
-    
     public static boolean isFloat(String value) {
         try {
             new BigDecimal(value);
